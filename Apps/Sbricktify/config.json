@@ -1,0 +1,12 @@
+{
+    "package":  "local.spotify.spotifast.brickspeaker",
+    "label":  "Sbricktify",
+    "icontop":  "sbricktify-icon.png",
+    "icon":  "",
+    "launch":  "launch.sh",
+    "description":  "Sbricktify music player for TrimUI Brick Pro",
+    "receiver_name":  "TrimUI Brick Speaker",
+    "receiver_device_id":  "d4d27bb9986a078af8b7e9b5ce6ea4715fd515b6",
+    "audio_owner":  "trimui-receiver",
+    "build":  "sbricktify-01.2-local-qr"
+}

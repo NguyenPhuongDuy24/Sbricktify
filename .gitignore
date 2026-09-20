@@ -1,0 +1,9 @@
+# Device-generated state: never commit credentials, tokens, playback state, or logs.
+Apps/Sbricktify/data/
+Apps/Sbricktify/logs/
+Apps/Sbricktify/run/
+Apps/Sbricktify/credentials/
+Apps/Sbricktify/tokens/
+*.log
+Thumbs.db
+.DS_Store

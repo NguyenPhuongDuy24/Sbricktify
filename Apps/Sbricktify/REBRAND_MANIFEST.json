@@ -1,0 +1,39 @@
+{
+  "artifact": "Sbricktify-01.7-browser-handoff.zip",
+  "package_root": "Apps/SpotifastBrickSpeaker",
+  "menu_label": "Sbricktify",
+  "fix": [
+    "Vietnamese QR login text is encoded with Rust Unicode escapes.",
+    "Bundled Inter font glyph coverage was verified for all updated Vietnamese text.",
+    "A short-lived LAN pairing server replaces the external QR relay in the Brick launcher.",
+    "The LAN pairing server validates Host, Origin, PIN, session lifetime, callback redirect URI and OAuth state before PKCE token exchange.",
+    "QR pairing now uses opaque black-and-white raster modules with nearest-neighbor sampling for reliable phone scanning.",
+    "Local QR forms use a one-time nonce so mobile browsers that omit Origin can pair without accepting an incorrect Origin.",
+    "The one-time nonce and exact Brick Host are the local QR CSRF authority; Chrome QR hand-offs with non-canonical Origin or Fetch Metadata no longer require reloads.",
+    "After PIN validation, the Brick serves an automatic Spotify hand-off page with a Continue to Spotify fallback link instead of an empty HTTP redirect."
+  ],
+  "qr_config_file": "config/qr-relay.json",
+  "qr_config_default": "intentionally empty legacy relay configuration; ignored while local QR pairing is enabled",
+  "ui_binary": "bin/spotifast-sdl2",
+  "ui_binary_sha256": "379d78dcfa06a7b9de45e2f00708dbde19ae051f1f4da15a634a1e34eb387d84",
+  "receiver_binary": "bin/trimui-receiver",
+  "receiver_binary_sha256": "b6477ad7d4a7e7c51d1ce880dfd12cc9aaeb3bc283c7494065a3daa489120068",
+  "receiver_identity_name": "TrimUI Brick Speaker",
+  "receiver_device_id": "d4d27bb9986a078af8b7e9b5ce6ea4715fd515b6",
+  "baseline_rollback": "D:\\volte\\spotify_port_analysis\\artifacts\\SpotifastBrickSpeakerLab-01.5.zip",
+  "excludes": [
+    "data/",
+    "logs/",
+    "run/",
+    "credentials",
+    "tokens",
+    "relay secrets"
+  ],
+  "local_qr_pairing": {
+    "enabled_by_launcher": true,
+    "external_relay": false,
+    "pc_relay": false,
+    "spotify_redirect_uri": "http://127.0.0.1:8989/login",
+    "session_timeout_seconds": 300
+  }
+}
