@@ -1,87 +1,79 @@
 # Sbricktify for TrimUI Brick Pro
 
-Sbricktify is the branded SDL2 user interface for the existing verified
-Spotify Connect receiver.
+An unofficial, experimental Spotify Connect receiver and controller for TrimUI Brick Pro.
 
-The app folder intentionally remains Apps/SpotifastBrickSpeaker in this
-release. That preserves its existing data/, device-bound receiver vault,
-saved Web API session, and runtime paths. The TrimUI Apps menu label is
-**Sbricktify**.
+## Tiếng Việt
 
-## Spotify Connect identity
+### Trạng thái hỗ trợ
 
-The receiver continues to appear in Spotify Connect as **TrimUI Brick Speaker**.
-Its Connect device ID is derived from that name; renaming it would create a
-different device identity and can invalidate the previously paired receiver.
-This release preserves the receiver, librespot, ALSA, device identity, and
-launcher lifecycle. It adds only a short-lived local QR page for Web API
-sign-in.
+Sbricktify hiện chỉ được thử nghiệm trên **TrimUI Brick Pro chạy StockOS**. Các firmware tuỳ biến, thiết bị TrimUI khác và Linux khác chưa được kiểm tra.
 
-## Use
+Trong danh sách Spotify Connect, Brick xuất hiện với tên **TrimUI Brick Speaker**. Đây là tên thiết bị phát; tên ứng dụng trong menu TrimUI vẫn là **Sbricktify**.
 
-1. With TrimUI powered off, use an SD-card reader to copy the contained
-   Apps/SpotifastBrickSpeaker folder to the SD card's Apps directory,
-   replacing only the application files while preserving data/ if it exists.
-2. Safely eject the card, return it to the Brick, and open **Sbricktify** from
-   Apps.
-3. Keep Wi-Fi connected. In Spotify Connect, select **TrimUI Brick Speaker**;
-   this is the stable receiver identity used by Sbricktify.
-4. Browse a playlist, choose a track with analog + A, then use X / L / R for
-   play-pause / previous / next. B returns or exits according to the UI.
+### Cài đặt
 
-No credentials, vault, access token, refresh token, or relay secret are
-included in this package.
+1. Tắt TrimUI và dùng đầu đọc thẻ SD.
+2. Chép thư mục `Apps/Sbricktify` vào thư mục `Apps` ở gốc thẻ SD.
+3. Eject thẻ an toàn, lắp lại vào Brick, bật máy và mở **Sbricktify** từ Apps.
+4. Kết nối Brick và điện thoại vào cùng một mạng Wi-Fi. Mạng guest chặn các thiết bị thấy nhau sẽ không hoạt động.
 
-## Logs after a device test
+### Đăng nhập Spotify
 
-- Apps/SpotifastBrickSpeaker/logs/launcher.log
-- Apps/SpotifastBrickSpeaker/logs/receiver.log
-- Apps/SpotifastBrickSpeaker/logs/spotifast-ui.log
-- Apps/SpotifastBrickSpeaker/run/receiver.status
+1. Mở Sbricktify và chờ QR code cùng mã PIN sáu chữ số xuất hiện.
+2. Quét QR bằng điện thoại, hoặc nhập địa chỉ hiển thị trên Brick vào trình duyệt điện thoại.
+3. Nhập PIN và chọn **Sign in with Spotify**.
+4. Trang tiếp theo sẽ tự mở Spotify. Nếu vẫn đứng ở trang đó, chọn **Continue to Spotify**; không cần reload trang pairing.
+5. Sau khi chấp thuận trong Spotify, trình duyệt sẽ mở địa chỉ `http://127.0.0.1:8989/login`. Trang này có thể báo lỗi vì `127.0.0.1` là điện thoại.
+6. Sao chép toàn bộ URL trên thanh địa chỉ, quay lại trang pairing, nhập lại PIN, dán URL và chọn **Confirm callback**.
 
-The log and data filenames intentionally retain their stable internal names.
+### Chọn thiết bị phát trên điện thoại
 
-## Rollback
+1. Mở Spotify trên điện thoại và bắt đầu phát một bài hát.
+2. Mở menu **Devices / Connect to a device**.
+3. Chọn **TrimUI Brick Speaker**.
+4. Chờ vài giây để receiver trên Brick hoàn tất kết nối, rồi âm thanh sẽ phát từ Brick.
 
-To remove only the local QR change, restore `Sbricktify-01.1.zip`. To return
-to the previously verified playback package, restore
-`SpotifastBrickSpeakerLab-01.5.zip`. Do not delete
-`data/receiver/credentials.vault` unless you want to pair the receiver again.
+### Điều khiển trên Brick
 
-## QR sign-in without a relay or PC
+- Analog di chuyển con trỏ; A click hoặc giữ A để kéo.
+- D-pad cuộn danh sách dưới con trỏ.
+- X phát/tạm dừng; L và R chuyển bài trước/sau.
+- B quay lại hoặc thoát ứng dụng theo màn hình hiện tại.
 
-The packaged launcher enables a temporary HTTP pairing page on the Brick's
-current Wi-Fi IPv4 address. It does not use a public relay, VPS, cloud service,
-PC relay, or browser on the Brick. Keep the phone and Brick on the same Wi-Fi
-network. Guest Wi-Fi that blocks device-to-device traffic will not work.
+## English
 
-1. Open **Sbricktify** and wait for the QR code, pairing address, and six-digit
-   PIN. The session expires after five minutes.
-2. Scan the QR code with the phone. If scanning is unavailable, enter the
-   address shown on the Brick in the phone browser.
-3. Enter the PIN on the Sbricktify page and select **Sign in with Spotify**. The next page opens Spotify automatically. If Chrome leaves that page visible, select **Continue to Spotify** there; do not reload the pairing page.
-4. After Spotify approval, the phone is redirected to
-   `http://127.0.0.1:8989/login`. This is a registered Spotify loopback
-   redirect for the existing Web API client, not the Brick's LAN address. It
-   can display a browser error because `127.0.0.1` refers to the phone.
-5. Copy the complete URL from the phone browser's address bar, return to the
-   Sbricktify pairing page, enter the PIN again, paste the URL, and select
-   **Confirm callback**.
+### Support status
 
-The Brick validates the callback's exact loopback origin, path and OAuth
-state, then exchanges the one-time code with its in-memory PKCE verifier. The
-phone never receives the verifier, access token, refresh token, credential
-vault, or Spotify password. HTTP on a LAN is not encrypted, so use a trusted
-Wi-Fi network and finish or cancel the short session promptly.
+Sbricktify has currently been tested only on **TrimUI Brick Pro running StockOS**. Custom firmware, other TrimUI devices, and other Linux systems are not tested.
 
-Each pairing form carries a one-time anti-forgery value, verified together with the exact Brick host and request type. Browser `Origin` and Fetch Metadata are diagnostics because Chrome can serialize a QR hand-off inconsistently; requests without the nonce, with the wrong host, duplicate `Origin`, or an unsupported body remain rejected.
+The Brick appears in Spotify Connect as **TrimUI Brick Speaker**. This is the playback-device name; the TrimUI Apps menu label remains **Sbricktify**.
 
-`config/qr-relay.json` remains empty and is ignored while local QR is enabled.
-No Client Secret, relay URL, or external configuration is needed for this
-package. If the mobile browser does not let you copy the loopback callback
-address, this flow cannot complete in that browser. Generate a new QR code and
-use another browser rather than treating the failed redirect page as success.
+### Installation
 
-## QR scan quality
+1. Power off the TrimUI and use an SD-card reader.
+2. Copy `Apps/Sbricktify` into the `Apps` folder at the SD-card root.
+3. Safely eject the card, return it to the Brick, power on, and open **Sbricktify** from Apps.
+4. Connect the Brick and phone to the same Wi-Fi network. Guest networks that isolate devices will not work.
 
-Build 01.3 renders the pairing QR as opaque `#000000` and `#FFFFFF` pixels at an integer module size, using nearest-neighbor sampling. It does not use the app theme's text colour.
+### Sign in to Spotify
+
+1. Open Sbricktify and wait for the QR code and six-digit PIN.
+2. Scan the QR code with the phone, or enter the address shown on the Brick in the phone browser.
+3. Enter the PIN and select **Sign in with Spotify**.
+4. The next page opens Spotify automatically. If it remains visible, select **Continue to Spotify**; do not reload the pairing page.
+5. After approval, the browser opens `http://127.0.0.1:8989/login`. That page can show an error because `127.0.0.1` refers to the phone.
+6. Copy the complete URL from the browser address bar, return to the pairing page, enter the PIN again, paste the URL, and select **Confirm callback**.
+
+### Select the playback device on the phone
+
+1. Open Spotify on the phone and start any track.
+2. Open **Devices / Connect to a device**.
+3. Select **TrimUI Brick Speaker**.
+4. Wait a few seconds for the receiver on the Brick to connect; audio should then play from the Brick.
+
+### Controls on the Brick
+
+- The analog stick moves the cursor; A clicks, or hold A while moving to drag.
+- The D-pad scrolls the list below the cursor.
+- X toggles play/pause; L and R select the previous and next track.
+- B goes back or exits the app, depending on the current screen.
