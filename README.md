@@ -6,7 +6,7 @@ An unofficial, experimental Spotify Connect receiver and controller for TrimUI B
 
 Sbricktify hiện chỉ được thử nghiệm trên **TrimUI Brick Pro chạy StockOS**. Các firmware tuỳ biến, thiết bị TrimUI khác chưa được kiểm tra.
 
-Cần tài khoản Spotify đã đăng kí gói premium, bất kí gói premium nào
+Cần tài khoản Spotify đã đăng kí gói premium để play nhạc, bất kí gói premium nào. acc thường vẫn login nhưng ko play nhạc được.
 
 ### Cài đặt
 
