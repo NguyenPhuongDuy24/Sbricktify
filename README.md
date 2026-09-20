@@ -52,3 +52,24 @@ Hãy thử tải lại (Reload/Refresh) trang pairing vài lần cho đến khi 
 - D-pad cuộn danh sách dưới con trỏ.
 - X phát/tạm dừng; L và R chuyển bài trước/sau.
 - B quay lại hoặc thoát ứng dụng theo màn hình hiện tại.
+
+### Tuyên bố về dự án
+
+Sbricktify là dự án mã nguồn mở, không chính thức, được phát triển
+với mục đích học tập, nghiên cứu và trải nghiệm cá nhân trên
+TrimUI Brick Pro.
+
+- Dự án hoàn toàn phi thương mại, miễn phí, không quảng cáo và
+  không nhằm mục đích thu lợi nhuận.
+- Sbricktify không được phát triển, tài trợ, chứng nhận hoặc
+  liên kết với Spotify AB hay TrimUI.
+- Ứng dụng sử dụng các thành phần mã nguồn mở. Đây không phải ứng dụng Spotify chính thức.
+- Dự án không cung cấp hoặc phân phối các bản ghi âm, bài hát
+  hay nội dung có bản quyền của Spotify.
+- Người dùng cần có tài khoản Spotify Premium để sử dụng
+  chức năng phát nhạc hiện tại.
+- Việc sử dụng ứng dụng phải tuân thủ các điều khoản dịch vụ
+  và quy định pháp luật áp dụng.
+- Phần mềm được cung cấp theo hiện trạng (as is), không bảo đảm
+  khả năng hoạt động liên tục hoặc tương thích với các thay đổi
+  của Spotify.
