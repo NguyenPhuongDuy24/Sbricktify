@@ -2,13 +2,9 @@
 
 An unofficial, experimental Spotify Connect receiver and controller for TrimUI Brick Pro.
 
-## Tiếng Việt
-
 ### Trạng thái hỗ trợ
 
-Sbricktify hiện chỉ được thử nghiệm trên **TrimUI Brick Pro chạy StockOS**. Các firmware tuỳ biến, thiết bị TrimUI khác và Linux khác chưa được kiểm tra.
-
-Trong danh sách Spotify Connect, Brick xuất hiện với tên **TrimUI Brick Speaker**. Đây là tên thiết bị phát; tên ứng dụng trong menu TrimUI vẫn là **Sbricktify**.
+Sbricktify hiện chỉ được thử nghiệm trên **TrimUI Brick Pro chạy StockOS**. Các firmware tuỳ biến, thiết bị TrimUI khác chưa được kiểm tra.
 
 ### Cài đặt
 
@@ -40,13 +36,9 @@ Trong danh sách Spotify Connect, Brick xuất hiện với tên **TrimUI Brick 
 - X phát/tạm dừng; L và R chuyển bài trước/sau.
 - B quay lại hoặc thoát ứng dụng theo màn hình hiện tại.
 
-## English
-
 ### Support status
 
-Sbricktify has currently been tested only on **TrimUI Brick Pro running StockOS**. Custom firmware, other TrimUI devices, and other Linux systems are not tested.
-
-The Brick appears in Spotify Connect as **TrimUI Brick Speaker**. This is the playback-device name; the TrimUI Apps menu label remains **Sbricktify**.
+Sbricktify has currently been tested only on **TrimUI Brick Pro running StockOS**. Custom firmware, other TrimUI devices are not tested.
 
 ### Installation
 
