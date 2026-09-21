@@ -25,7 +25,7 @@ Cần tài khoản Spotify đã đăng kí gói premium để play nhạc, bất
 6. Sao chép toàn bộ URL trên thanh địa chỉ, quay lại trang pairing, nhập lại PIN, dán URL và chọn **Confirm callback**.
 
 ### Khắc phục lỗi trang đăng nhập QR
-
+Dùng trình duyệt Chrome
 Nếu sau khi quét QR, trang đăng nhập trên điện thoại hiển thị:
 
 > Request rejected
